@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  php:
+    build: $PWD/.docker/php
+    volumes:
+      - $PWD:/opt/php
+    working_dir: /opt/php
+    environment:
+      XDEBUG_CONFIG: 
+        remote_host=${REMOTE_HOST}
+        remote_enable=1
+        remote_port=9000
+        remote_default_enable=1
+        remote_connect_back=0

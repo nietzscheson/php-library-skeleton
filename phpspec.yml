@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Nietzscheson\PHPLibrarySkeleton
+        psr4_prefix: Nietzscheson\PHPLibrarySkeleton
+        src_path: .
