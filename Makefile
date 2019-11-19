@@ -1,21 +1,21 @@
-.PHONY: 
+.PHONY:
 
-docker_compose = docker-compose
-docker_compose_file = $(docker_compose) -f docker-compose.yaml
-docker_compose__up_build_e = up --build -d
-
-up:
-	$(docker_compose_file) \
-	$(docker_compose__up_build_e) 
-rm:
-	docker \
-	rm \
-	$(shell docker ps -aq) \
-	-f
-ps:
-	docker \
-	ps -a
+pull:
+	docker-compose pull
+build: pull
+	docker-compose build
+dependencies:
+	docker-compose run --rm php composer install
+up: build dependencies
+	docker-compose up -d
+down:
+	docker-compose down
+volume: down
+	docker volume prune -f
+logs:
+	docker-compose logs
+init: volume up logs
+specs:
+	docker-compose run --rm php vendor/phpspec/phpspec/bin/phpspec run
 behat:
-	$(docker_compose_file) \
-	run --rm \
-	php bin/behat
+	docker-compose run --rm php vendor/behat/behat/bin/behat
