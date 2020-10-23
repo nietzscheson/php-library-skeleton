@@ -10,7 +10,7 @@
             "request": "launch",
             "port": 9000,
             "pathMappings": {
-                "/opt/php": "${workspaceRoot}",
+                "/usr/src/app": "${workspaceRoot}",
             }
         }
     ]
