@@ -6,3 +6,12 @@ RUN apk add --no-cache $PHPIZE_DEPS \
 
 RUN rm -rf /var/cache/apk/* && rm -rf /tmp/* && \
   curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
+
+WORKDIR /usr/src/app
+
+COPY composer.json .
+COPY composer.lock .
+
+RUN composer install
+
+COPY . .

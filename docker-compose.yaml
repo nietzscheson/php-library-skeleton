@@ -2,10 +2,13 @@ version: "3.3"
 
 services:
   php:
-    build: $PWD/.docker/php
+    build: .
+    container_name: php
+    tty: true
     volumes:
-      - $PWD:/opt/php
-    working_dir: /opt/php
+      - ./:/usr/src/app:rw,cached
+      - /usr/src/app/vendor
+    working_dir: /usr/src/app
     environment:
       XDEBUG_CONFIG: 
         remote_host=${XDEBUG_REMOTE_HOST}
