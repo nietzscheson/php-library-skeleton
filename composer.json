@@ -13,9 +13,9 @@
         "php": "^7.2"
     },
     "require-dev": {
-        "phpspec/phpspec": "4.3.0",
-        "behat/behat": "3.5.0",
-        "webmozart/assert": "1.3.0"
+        "phpspec/phpspec": "6.2.1",
+        "behat/behat": "3.7.0",
+        "webmozart/assert": "1.9.0"
     },
     "autoload": {
         "psr-4": { "Nietzscheson\\PHPLibrarySkeleton\\": "src" }
